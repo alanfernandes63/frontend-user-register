@@ -1,10 +1,10 @@
 import React from 'react';
-import MyButton from './components/drawer'
+import ComponenteDrawer from './components/drawer/index';
 
 function App() {
   return (
     <div className="App">
-      <MyButton></MyButton>
+     <ComponenteDrawer></ComponenteDrawer>
     </div>
   );
 }
