@@ -11,6 +11,8 @@ const useStyles = makeStyles( theme => (
     {
       drawPaper:{
         width:240
+      },
+      drawerHeader:{
       } 
     }
   )
@@ -21,7 +23,7 @@ export default function ComponentDrawer(){
 
   const dispatch = useDispatch();
 
-  function handleDrawerOpen(){
+  function handleDrawerClose(){
     dispatch({type:'CLOSE_DRAWER'});
   }
   
@@ -35,7 +37,7 @@ export default function ComponentDrawer(){
       classes={{paper:classes.drawPaper}}
       open={ isOpen }>
         <div className={classes.drawerHeader}>
-          <IconButton onClick= { handleDrawerOpen }>
+          <IconButton onClick= { handleDrawerClose }>
              <ChevronLeftIcon />
           </IconButton>
         </div>

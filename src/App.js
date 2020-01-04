@@ -1,16 +1,19 @@
 import React from 'react';
-import ComponenteDrawer from './components/drawer/index';
-import AplicationAppbar from './components/appBar/index';
-import { Provider } from 'react-redux';
-import store from './components/appBar/store';
+//import ComponenteDrawer from './components/drawer/index';
+//import AplicationAppbar from './components/appBar/index';
+//import { Provider } from 'react-redux';
+//import store from './components/appBar/store';
+import Login from './pages/login/login';
 
 function App() {
+  
   return (
-    <div className="App">
+    <div className="App">{/*
     <Provider store={ store }>
      <AplicationAppbar></AplicationAppbar>
      <ComponenteDrawer></ComponenteDrawer>
-     </Provider>
+     </Provider>*/}
+     <Login></Login>
     </div>
   );
 }
