@@ -1,53 +1,33 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
-
-const useStyles = makeStyles( theme => (
-    {
-      paper:{
-        marginTop: theme.spacing(8),
-        backgroundColor:'#e2e7e4',
-        height:theme.spacing(7) * 2,
-        flexDirection:'column',
-        alignItems:'center',
-        display:'flex'
-      },
-
-        form:{
-              width:'100%',
-          },
-        avatar:{
-            margin:theme.spacing(1),
-            backgroundColor: 'white',//theme.palette.secondary.main,
-            width:theme.spacing(10),
-            height:theme.spacing(10)
-        },
-
-        icon:{
-            fontSize:theme.spacing(12),
-            color:theme.palette.secondary.main,
-        }
-    }
-  ));
-
+import useStyles from './style';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 export default function Login(){
 
     const classes = useStyles();
 
     return (
-        <Container component="main" maxWidth="xs" style={{ height:100}}>
+        <Container component="main" maxWidth="sm">
             <div className={ classes.paper }>
             <Avatar className={ classes.avatar }>
                     <AccountCircleIcon className={ classes.icon } />
             </Avatar>
-            <form noValidate>
-                <Grid container>
+            <Typography component="h1" variant="h5">
+            Login
+             </Typography>
+            <form noValidate style={{width:'100%'}}>
+                <Grid container justify="center">
+                    <Grid item md={ 10 } sm={ 12 }>
+                    <TextField margin="normal" label="Username" variant="outlined" fullWidth />
+                    <TextField margin="normal" label="Password" fullWidth variant="outlined" type="password" />
+                    <Button classes={{root:classes.root}} color="primary" variant="contained" fullWidth>Entrar</Button>
+                    </Grid>
                 </Grid>
             </form>
             </div>
