@@ -12,8 +12,14 @@ const useStyles = makeStyles( theme => (
       drawPaper:{
         width:240
       },
-      drawerHeader:{
-      } 
+      drawerHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: theme.spacing(0, 1),
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-end',
+      },
+      
     }
   )
 );

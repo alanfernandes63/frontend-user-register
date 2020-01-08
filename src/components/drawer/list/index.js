@@ -6,13 +6,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
-
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -27,13 +26,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function NestedList() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [openListTodos, setOpenListTodos] = React.useState(true);
+  const [openListUsers, setOpenListUsers] = React.useState(false);
 
   
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleClickListTodos = () => {
+    setOpenListTodos(!openListTodos);
   };
+
+  const handleClickListUsers = () =>{
+    setOpenListUsers(!openListUsers);
+  }
 
 
   
@@ -50,26 +54,34 @@ export default function NestedList() {
         
       }
     >
-      <ListItem button>
+      <ListItem button onClick={ handleClickListUsers }>
         <ListItemIcon>
-          <SendIcon />
+          <PersonOutlineIcon />
         </ListItemIcon>
-        <ListItemText primary="Sent mail" />
+        <ListItemText primary="Users" />
+        {openListUsers ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <ListItem button>
+
+      <Collapse in={ openListUsers } timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItem button className={classes.nested}>
+            <ListItemIcon>
+              <AddCircleOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary="Add" />
+          </ListItem>
+        </List>
+      </Collapse>
+
+      <ListItem button onClick={ handleClickListTodos }>
         <ListItemIcon>
-          <DraftsIcon />
+          <ListAltIcon />
         </ListItemIcon>
-        <ListItemText primary="Drafts" />
+        <ListItemText primary="Todos" />
+        {openListTodos ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <ListItem button onClick={handleClick}>
-        <ListItemIcon>
-          <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Inbox" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+
+      <Collapse in={ openListTodos } timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
