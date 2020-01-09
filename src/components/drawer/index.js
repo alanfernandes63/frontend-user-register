@@ -34,7 +34,8 @@ export default function ComponentDrawer(){
   }
   
   const classes = useStyles();
-  const isOpen = useSelector(state => state);
+  const { handleDrawer } = useSelector(state => state);
+  const isOpen = handleDrawer;
 
   return (
     

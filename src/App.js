@@ -5,12 +5,16 @@ import { Provider } from 'react-redux';
 import store from './components/appBar/store';
 //import Login from './pages/login/login';
 
+import SimpleTable from './components/tables/user';
+
 function App() {
   
   return (
     <div className="App">
     <Provider store={ store }>
+      { console.log(store.getState().handleDrawer) }
      <AplicationAppbar></AplicationAppbar>
+      <SimpleTable></SimpleTable>
      <ComponenteDrawer></ComponenteDrawer>
      </Provider>
     </div>

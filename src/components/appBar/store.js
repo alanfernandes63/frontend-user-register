@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import handleDrawer from './reducers';
+import reducer from './reducers';
 
-const store = createStore(handleDrawer);
+const store = createStore(reducer);
 
 export default store;
