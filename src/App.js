@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="App">
     <Provider store={ store }>
-      { console.log(store.getState().handleDrawer) }
      <AplicationAppbar></AplicationAppbar>
       <SimpleTable></SimpleTable>
      <ComponenteDrawer></ComponenteDrawer>

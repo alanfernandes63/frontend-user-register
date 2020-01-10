@@ -4,7 +4,7 @@ export function handleDrawer(state = true, action){
     
     switch(action.type){
         case 'OPEN_DRAWER':
-            return true;
+            return !state
         case 'CLOSE_DRAWER':
             return false;
         default:
@@ -17,9 +17,9 @@ export function handleDrawer(state = true, action){
 export function handleDrawerSize(state=240,action){
     switch(action.type){
         case 'CHANGE_SIZE':
-            return action.state;
+            return 240;
         default:
-            return state;
+            return 240;
     }
 }
 
